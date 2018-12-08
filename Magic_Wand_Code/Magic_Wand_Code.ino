@@ -15,27 +15,25 @@ void setup()
 }
 
  
-void loop() 
-{ 
-  
+void loop(){ 
+ 
   if (Serial.available()) {
-                // read the incoming byte:
-                incomingByte = Serial.read();
-           if (incomingByte == 49){
-                // say what you got:
-                Serial.print("I received: ");
-                Serial.println(incomingByte, DEC);
-                
-    pos = 180;                        
-    myservo.write(pos);              // tell servo to go to position in variable 'pos' 
-    delay(5);                       // waits 15ms for the servo to reach the position 
-  }
-  else if(incomingByte == 50){
-
-    pos = 0;
-    myservo.write(pos);              // tell servo to go to position in variable 'pos' 
-    delay(5);                       // waits 15ms for the servo to reach the position 
-       }}
+     // read the incoming byte:
+     incomingByte = Serial.read();
+     if (incomingByte == 49){
+          // say what you got:
+          Serial.print("I received: ");
+          Serial.println(incomingByte, DEC);
+          pos = 180;                        
+          myservo.write(pos);              // tell servo to go to position in variable 'pos' 
+          delay(5);                       // waits 15ms for the servo to reach the position 
+    }
+     else if(incomingByte == 50){
+       pos = 0;
+       myservo.write(pos);              // tell servo to go to position in variable 'pos' 
+       delay(5);                       // waits 15ms for the servo to reach the position 
+     }
+}
          
 //---------------------------------------------------------------
 
